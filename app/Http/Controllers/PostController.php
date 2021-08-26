@@ -14,7 +14,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('posts.index');
+        // 投稿されたものを全て取得
+        $posts = Post::all();
+
+        return view('posts.index', compact('posts'));
     }
 
     /**

@@ -20,14 +20,27 @@ app/Http/Controllersへ作成される.
 `php artisan route:list`  
 ルート定義の確認  
 リソースコントローラとは...あるデータのCRUD処理を簡潔にできる機能。  
-※cloud9にてCSSなど読込処理が必要`if(env('APP_ENV')==='local')~`
+※cloud9にてCSSなど読込処理が必要`if(env('APP_ENV')==='local')~`  
+<br>
 
+■リソースコントローラにより処理されるアクション
+| リクエスト | 	URI          | 	アクション | 
+| ---------- | ------------- | ----------- | 
+| GET        | /posts        | index       | 
+| GET        | /posts/create | create      | 
+| POST       | /posts        | store       | 
+| GET        | /posts/1      | show        | 
+| GET        | /posts/1/edit | edit        | 
+| PUT/PATCH  | /posts/1      | update      | 
+| DELETE     | /posts/1      | destroy     | 
+<br>
 - ビューの作成  
 `return view('ブレード名')`
 指定するブレード名はresources/views/posts/index.blade.php  ==>> index.php  
-{{ csrf_field() }}  
+`{{ csrf_field() }}  `  
 クロスサイトスクリプティング対策
 
-
-
+- モデルのデータ保存  
+`$post = new Post();
+$post->save();`
 

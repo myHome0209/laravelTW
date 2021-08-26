@@ -1,3 +1,4 @@
+<!-- storeへ -->
 <form method="POST" action="/posts">
     {{ csrf_field() }}
     <input type="text" name="title">
