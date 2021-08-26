@@ -1,6 +1,6 @@
 ## Laravel開発メモ
 
-# artisan関連
+## 基本コード
 - モデル作成  
 `php artisan make:model -m 'モデル名'`  
 -m はマイグレーションファイル(database/migrations/~)を同時作成.
@@ -65,7 +65,9 @@ bladeにて
 - モデルのデータ削除  
 `モデル名->delete();`  
 
-## bootstrap4
+
+
+## レイアウト
 - レイアウトファイル宣言  
 `@extends('layouts.レイアウト名')`  
 パスresources/views/layouts/レイアウト名が読込まれる
@@ -94,6 +96,13 @@ bladeにて{{ @error }}で取り出せる
 
 - 入力フォームの保存(ヘルパー)  
 `{{ old('フォームのキー名') }}`
+
+- フッター下の空白除去  
+bootstrap4に.fixed-bottomクラスがあり、これをフッターに追加  
+`<footer class="py-3 bg-light fixed-bottom">`
+
+- スマホ対応  
+
 
 
 
