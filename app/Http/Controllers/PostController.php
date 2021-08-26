@@ -16,6 +16,9 @@ class PostController extends Controller
     {
         // 投稿されたものを全て取得
         $posts = Post::all();
+        // echo('<pre>');
+        // var_dump($posts);
+        // echo('</pre>');
 
         return view('posts.index', compact('posts'));
     }
@@ -52,8 +55,10 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
+        $post = Post::findOrFail($id);
+
         return view('posts.show', compact('post'));
     }
 
@@ -65,7 +70,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -77,7 +82,11 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $post->title = $request->input('title');
+        $post->content = $request->input('content');
+        $post->save();
+
+        return redirect()->route('posts.show', ['id' => $post->id])->with('message', 'Post was successfully updated.');
     }
 
     /**
@@ -88,6 +97,9 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        // 投稿削除
+        $post->delete();
+
+        return redirect()->route('posts.index');
     }
 }

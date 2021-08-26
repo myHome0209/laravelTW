@@ -1,4 +1,4 @@
-## 開発メモ
+## Laravel開発メモ
 
 # artisan関連
 - モデル作成  
@@ -19,11 +19,12 @@ app/Http/Controllersへ作成される.
 リソースルートの登録  
 `php artisan route:list`  
 ルート定義の確認  
-リソースコントローラとは...あるデータのCRUD処理を簡潔にできる機能。  
-※cloud9にてCSSなど読込処理が必要`if(env('APP_ENV')==='local')~`  
+※リソースコントローラとは...あるデータのCRUD処理を簡潔にできる機能。  
+※cloud9にてCSSなど読込処理が必要
+`if(env('APP_ENV')==='local')~`  
 <br>
 
-■リソースコントローラにより処理されるアクション
+## リソースコントローラにより処理されるアクション
 | リクエスト | 	URI          | 	アクション | 
 | ---------- | ------------- | ----------- | 
 | GET        | /posts        | index       | 
@@ -32,15 +33,35 @@ app/Http/Controllersへ作成される.
 | GET        | /posts/1      | show        | 
 | GET        | /posts/1/edit | edit        | 
 | PUT/PATCH  | /posts/1      | update      | 
-| DELETE     | /posts/1      | destroy     | 
-<br>
+| DELETE     | /posts/1      | destroy     |
+※指定したURIにより呼ばれるアクションメソッドが変わる。formのactionでURIを指定し、hiddenのvalueでリクエストを指定。 指定したアクションが呼ばれる。
+<br><br>
 - ビューの作成  
-`return view('ブレード名')`
+`return view('ブレード名')`  
 指定するブレード名はresources/views/posts/index.blade.php  ==>> index.php  
 `{{ csrf_field() }}  `  
 クロスサイトスクリプティング対策
 
 - モデルのデータ保存  
-`$post = new Post();
-$post->save();`
+`$post = new Post();`
+`$post->save();`
+
+- モデルを主キーで取得  
+`$post = 'model名'::findOrFail('modelの主キー');`  
+指定モデルの主キーからモデルデータ取得できる  
+`$model = App\モデル名::where('他カラム', 1)->firstOrFail();`  
+主キー以外のカラム検索で取得  
+※DB側でUNIQUE制約があるキーを指定した方が差異が生じにくい
+
+- フラッシュデータ
+セッションに一時保存して表示する場合に使用
+`$req->session()->flash('message', '本登録が完了しました');`
+bladeにて
+`@if (Session::has('message'))`
+`{{ Session::get('message') }}`
+`@endif`
+
+- モデルのデータ削除  
+`モデル名->delete();`  
+
 
