@@ -64,4 +64,21 @@ bladeにて
 - モデルのデータ削除  
 `モデル名->delete();`  
 
+## bootstrap4
+- レイアウトファイル宣言  
+`@extends('layouts.レイアウト名')`  
+パスresources/views/layouts/レイアウト名が読込まれる
 
+- sectionについて  
+bladeの  
+`@section('埋め込みコード')`  
+↓  
+extend先の    
+`@yield('埋め込みコード')`  
+へ出力される  
+
+- componentについて
+header.blade.phpを呼び出す
+`@component('component.header')`
+`@endcomponent`
+呼び出されるパスはresources/views/componentsのディレクトリ内

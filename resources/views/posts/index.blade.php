@@ -1,3 +1,9 @@
+@extends('layouts.layouts')
+
+@section('title', 'Simple Board')
+
+@section('content')
+
 <h1>Posts</h1>
 
 @foreach($posts as $post)
@@ -13,3 +19,4 @@
 @endforeach
 
 <a href="/posts/create">New Post</a>
+@endsection
