@@ -39,7 +39,7 @@ app/Http/Controllersへ作成される.
 <br><br>
 - ビューの作成  
 `return view('ブレード名')`  
-指定するブレード名はresources/views/posts/index.blade.php  ==>> index.php  
+指定するブレード名はresources/views/posts/index.blade.php  ==>> 'posts.index'がブレード名  
 `{{ csrf_field() }}  `  
 クロスサイトスクリプティング対策
 
@@ -85,7 +85,15 @@ header.blade.phpを呼び出す
 呼び出されるパスはresources/views/componentsのディレクトリ内   
 footerも同様  
 
+- バリデーション(controller)  
+ `$request->validate([`  
+`           'title' => 'required|max:255',`  
+`            'content' => 'required',`  
+`        ]);`  
+bladeにて{{ @error }}で取り出せる
 
+- 入力フォームの保存(ヘルパー)  
+`{{ old('フォームのキー名') }}`
 
 
 
