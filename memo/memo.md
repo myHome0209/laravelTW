@@ -34,6 +34,7 @@ app/Http/Controllersへ作成される.
 | GET        | /posts/1/edit | edit        | 
 | PUT/PATCH  | /posts/1      | update      | 
 | DELETE     | /posts/1      | destroy     |
+<br>
 ※指定したURIにより呼ばれるアクションメソッドが変わる。formのactionでURIを指定し、hiddenのvalueでリクエストを指定。 指定したアクションが呼ばれる。
 <br><br>
 - ビューの作成  
@@ -77,8 +78,14 @@ extend先の
 `@yield('埋め込みコード')`  
 へ出力される  
 
-- componentについて
-header.blade.phpを呼び出す
-`@component('component.header')`
-`@endcomponent`
-呼び出されるパスはresources/views/componentsのディレクトリ内
+- componentについて  
+header.blade.phpを呼び出す  
+`@component('component.header')`  
+`@endcomponent`  
+呼び出されるパスはresources/views/componentsのディレクトリ内   
+footerも同様  
+
+
+
+
+
