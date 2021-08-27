@@ -109,7 +109,15 @@ ViewPortについて…PCで表示しない場合の画面表示指定コード
 - ヘッダー固定  
 `<nav>`タグに.fixed-topを追加するとヘッダー固定  
 
-
-
-
+# Heroku
+- install  
+`curl -OL https://cli-assets.heroku.com/heroku-linux-x64.tar.gz && tar zxf heroku-linux-x64.tar.gz && rm -f heroku-linux-x64.tar.gz && sudo mv heroku /usr/local && echo 'PATH=/usr/local/heroku/bin:$PATH' >> $HOME/.bash_profile`  
+- reload  
+`source ~/.bash_profile`  
+- login  
+`heroku login --interactive`  
+- logout  
+`heroku logout`  
+- version  
+`heroku --version`  
 
