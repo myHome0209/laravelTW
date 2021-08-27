@@ -10,7 +10,9 @@
     <body>
         @component('components.header')
         @endcomponent
-        <div class="container">
+        <div class="containe pt-5 pb-5r">
+            @component('components.flash')
+            @endcomponent
             @yield('content')
         </div>
         

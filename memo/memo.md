@@ -54,13 +54,14 @@ app/Http/Controllersへ作成される.
 主キー以外のカラム検索で取得  
 ※DB側でUNIQUE制約があるキーを指定した方が差異が生じにくい
 
-- フラッシュデータ
+- フラッシュデータ,フラッシュメッセージ
 セッションに一時保存して表示する場合に使用
-`$req->session()->flash('message', '本登録が完了しました');`
-bladeにて
-`@if (Session::has('message'))`
-`{{ Session::get('message') }}`
-`@endif`
+`$req->session()->flash('message', '本登録が完了しました');`  
+bladeにて  
+`@if (Session::has('message'))`  
+`{{ Session::get('message') }}`  
+`@endif`  
+コンポーネント化する為に`resources/views/components/ブレード名`に移動
 
 - モデルのデータ削除  
 `モデル名->delete();`  
@@ -102,6 +103,12 @@ bootstrap4に.fixed-bottomクラスがあり、これをフッターに追加
 `<footer class="py-3 bg-light fixed-bottom">`
 
 - スマホ対応  
+ViewPortについて…PCで表示しない場合の画面表示指定コード  
+`<meta name="viewport" content="width=device-width, initial-scale=1.0">`
+
+- ヘッダー固定  
+`<nav>`タグに.fixed-topを追加するとヘッダー固定  
+
 
 
 
